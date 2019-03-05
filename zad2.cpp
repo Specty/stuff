@@ -12,49 +12,60 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 using namespace std;
 
-void min(int z)
+void show(int a, int b,int c, int d, bool e)
 {
-    int x=z;
-    int minInd, min=100, maxInd, max=-100;
-    
-    cout<<endl;
-    int a[x];
-    for (int i=0; i<x;i++){
-        a[i]=rand() % 10 - 5;
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
-    for (int j=x-1; j>-1;j--)
-    {
-        if(min>a[j])
-        {
-            min=a[j];
-            minInd=j;
-            cout<<min<<" "<<minInd<<endl;
-        } else
-        if(max<a[j])
-        {
-            max=a[j];
-            maxInd=j;
-            cout<<max<<" "<<maxInd<<endl;
-        }
-    }
-    show(minInd,min,maxind,max);
+    bool q=e;
+    if(!q){
+    cout<<"Min index = "<<a<<", min znach = "<<b<<endl;}
+    else
+    cout<<"Max index = "<<c<<", max znach = "<<d<<endl;
+    system("pause");
 }
 
-void show(int a, int b,int c, int d)
+void minmax(int z, int *a, bool c)
 {
-     cout<<"Min index = "<<a<<", min znach = "<<b<<endl;
-     cout<<"Max index = "<<c<<", max znach = "<<d<<endl;
+    int x=z;
+    bool b=c;
+    int minInd, min=100, maxInd, max=-100;
+    if (b)
+    {
+        for (int j=x-1; j>-1;j--)
+        {
+            if (max<a[j])
+            {
+            max=a[j];
+            maxInd=j;
+            }
+        }
+    } else
+    {
+        for (int j=x-1; j>-1;j--)
+        {
+            if (min>a[j])
+            {
+            min=a[j];
+            minInd=j;
+            }
+        }
+    }
+    show(minInd,min,maxInd,max,b);
 }
 
 int main()
 {
     srand( time(0) );
     int x;
+    bool b;
     cin>>x;
-    min(x);
-    system("pause");
+    int a[x];
+    for (int i=0; i<x;i++){
+        a[i]=rand() % 20 - 8;
+        cout<<a[i]<<" ";
+    }
+    cout<<"Min or max? (0/1)"<<endl;
+    cin>>b;
+    minmax(x, a ,b);
     return 0;
 }
+
 
