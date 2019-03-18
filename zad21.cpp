@@ -25,7 +25,7 @@ using namespace std;
 void show(int *a, unsigned first, unsigned last)
 {
     unsigned k;
-    for (k=last; k!=first; --k)
+    for (k=last; k!=first-1; --k)
         cout<<a[k]<<" ";
 }
 
@@ -62,3 +62,4 @@ int main()
     system("pause");
     return 0;   
 }
+
