@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void show (int a[])
+void show (char a[])
 {
   unsigned k;
   for (k = 0; k < N && a[k] != 0; ++k)
@@ -17,7 +17,7 @@ void show (int a[])
   cout << endl;
 }
 
-void simpleSSort (int a[], unsigned first, unsigned last)
+void simpleSSort (char a[], unsigned first, unsigned last)
 {
   unsigned k, i;
   int temp;
@@ -33,7 +33,7 @@ void simpleSSort (int a[], unsigned first, unsigned last)
 
 struct Test
 {
-  int arr[N];
+  char arr[N];
   unsigned first, last;
 };
 
