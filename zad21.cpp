@@ -2,20 +2,22 @@
 #include <iostream>
 #include <conio.h>
 
+#define M 7
+#define N 12
+
 using namespace std;
 
-void
-show (int *a, unsigned first, unsigned last)
+void show (int a[])
 {
   unsigned k;
-  for (k = last; k != first - 1; --k)
-    cout << a[k] << " ";
-    cout<<"===Sorted==="<<endl;
-    cout<<endl;
+  for (k = 0; k < N && a[k] != 0; ++k)
+    {
+      cout << a[k] << " ";
+    }
+  cout << endl;
 }
 
-void
-simpleSSort (int *a, unsigned first, unsigned last)
+void simpleSSort (int a[], unsigned first, unsigned last)
 {
   unsigned k, i;
   int temp;
@@ -27,31 +29,32 @@ simpleSSort (int *a, unsigned first, unsigned last)
 	  a[i] = a[k];
 	  a[k] = temp;
 	}
-  show (a, first, last);
 }
 
+struct Test
+{
+  int arr[N];
+  unsigned first, last;
+};
 
 
 int main ()
 {
-    srand (time (0));
-    int x, j, first, last;
-    cout << "Enter X" << endl;
-    cin >> x;
-    int a[x];
-    cout << endl;
-    cout << "Enter 1st element and last element(1st<last<X)" << endl;
-    cin >> first >> last;
-    for (j=0;j<21;j+=10){
-    for (int i = 0; i < x; i++)
+  struct Test mass[M] = {
+    {{98, 4, 9, 52, 18}, 0, 4},
+    {{57, 81, 82}, 0, 2},
+    {{76, 20, 53}, 0, 2},
+    {{30, 87, 7, 71, 80}, 1, 4},
+    {{51, 11, 8, 22, 7, 11, 54, 34}, 1, 5},
+    {{43, 32, 52}, 2, 2},
+    {{99, 74, 77, 30, 13, 21, 64, 10, 45, 10, 53}, 10, 0}
+  };
+  for (int i = 0; i < M; i++)
     {
-        a[i] = rand () % 20 - j;
-        cout << a[i] << " ";
+      show (mass[i].arr);
+      cout << mass[i].first << " " << mass[i].last << endl;
+      simpleSSort (mass[i].arr, mass[i].first, mass[i].last);
+      show (mass[i].arr);
     }
-    cout<<"===generated==="<<endl;
-    simpleSSort (a, first, last);
-    a[x]=0;
-    }
-    system ("pause");
-    return 0;
+  return 0;
 }
